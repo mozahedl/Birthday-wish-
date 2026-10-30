@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Galaxy twinkle effect */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(white 1px, transparent 0), radial-gradient(rgba(255,255,255,0.5) 1px, transparent 0);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        /* Falling Cakes, Balloons & Flowers Animation */
+        .falling-item {
+            position: fixed;
+            top: -50px;
+            z-index: 2;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.7;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            color: #ffb6c1;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #f0f0f0;
+            margin-bottom: 25px;
+        }
+
+        .message-box {
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .message-box p {
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 25px;
+            font-weight: bold;
+            color: #ffb6c1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <div class="container">
+        <div class="heart-icon">💖</div>
+        <h1>Happy Birthday my sweet little gusu musu!❤️</h1>
+        <div class="subtitle">My most beloved babyboy, today is all about you. 🥺</div>
+
+        <div class="message-box">
+            <p>Happy Birthday to my cutie babyboy💋
+, You are the best gift I could ever ask for. I know I sometimes behave differently..I know I sometimes fail to make you feel loved.But still for me you everything about you is precious.Every time I hear the word " love " the only face that floats infront of yours...You are the first boy and In Sha Allah the last one who makes me feel better in my guilt,pain and downs...I always thought how you'll live with me.You'll just throw me away but you proved me wrong.The moment I am writing this,it's almost our one year anniversary.You really are with me...After all the breath taking jhogras you still didn't leave me though most of the time it's my fault.I'm really blessed to have you in my life.You are not just a partner to me,you are my safe place,my comfort,my bestfriend to whom i can share everything without the fear of being judged.Thank you so much for being that person to me 🫂
+💕</p>
+            <p>I Pray all your good wishes to come true.I hope you'll become the person you want to be.🫂
+</p>
+            <p>I am writing this today to not only make you feel loved today only.I want you to know that you are always the precious one to me.I love you.I chose you and will choose you  daily,forever and ever In Sha Allah. 🫂
+</p>
+            
+            <div class="signature">
+                <br>
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Falling elements script (Cakes, Balloons, Flowers)
+        const symbols = ['🎂', '🧁', '🎈', '🌸', '💐', '💖', '✨'];
+
+        function createFallingItem() {
+            const item = document.createElement('div');
+            item.classList.add('falling-item');
+            item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            item.style.left = Math.random() * window.innerWidth + 'px';
+            item.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            
+            const duration = Math.random() * 3 + 4; // 4 to 7 seconds
+            item.style.animationDuration = duration + 's';
+
+            document.body.appendChild(item);
+
+            setTimeout(() => {
+                item.remove();
+            }, duration * 1000);
+    }
+
+        // Generate items continuously
+        setInterval(createFallingItem, 300);
+    </script>
+</body>
+</html>
